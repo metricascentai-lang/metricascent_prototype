@@ -1,0 +1,8 @@
+# Local dev / editor
+.claude/
+.DS_Store
+Thumbs.db
+*.log
+
+# Design source bundle (25 MB of mockup sources — not needed to run the site)
+Metricascent website design-handoff/
