@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MetricAscent — Capture More Opportunities. Book More Estimates. Grow Revenue.</title>
 <meta name="description" content="MetricAscent helps independent window & door companies turn more inquiries into booked estimates, more estimates into sales, and more sales into revenue.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#143558">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -62,6 +67,14 @@
   .ma-footer-link:hover { color: #C9A23F; }
   .ma-social:hover { border-color: #E1BD63 !important; color: #C9A23F !important; }
 
+  /* mobile menu (hidden on desktop, shown via media query) */
+  .ma-burger .ma-ic-x { display: none; }
+  .ma-burger.open .ma-ic-menu { display: none; }
+  .ma-burger.open .ma-ic-x { display: inline-flex; }
+  .ma-mobile-menu.open { display: flex !important; }
+  .ma-mobile-link { color: #2B3852; text-decoration: none; font-size: 16px; font-weight: 600; font-family: 'Sora', sans-serif; padding: 14px 4px; border-bottom: 1px solid #F0F2F5; transition: color 0.2s ease; }
+  .ma-mobile-link:hover { color: #C9A23F; }
+
   /* FAQ accordion */
   .ma-faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
   .ma-faq.open .ma-faq-answer { max-height: 400px; }
@@ -81,7 +94,8 @@
   }
   @media (max-width: 820px) {
     .ma-nav { display: none !important; }
-    .ma-leak-flow { flex-direction: column !important; gap: 26px !important; }
+    .ma-burger { display: inline-flex !important; }
+    .ma-leak-flow { flex-direction: column !important; gap: 26px !important; align-items: center !important; }
     .ma-leak-flow .ma-leak-line { display: none !important; }
     .ma-rightplace-grid { grid-template-columns: repeat(2, 1fr) !important; }
     .ma-hero-feats { grid-template-columns: repeat(2, 1fr) !important; }
@@ -128,10 +142,23 @@
         <a href="#why" class="ma-nav-link">Why MetricAscent</a>
         <a href="#faq" class="ma-nav-link">FAQs</a>
       </nav>
-      <a href="https://cal.com/metric-ascent/free-revenue-recovery-audit" target="_blank" rel="noopener" class="ma-cta ma-header-cta" style="display: inline-flex; align-items: center; gap: 8px; background: #E1BD63; color: #143558; text-decoration: none; font-weight: 700; font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase; padding: 16px 30px; border-radius: 9px; box-shadow: 0 6px 16px rgba(225,189,99,0.28);">
-        Book Your Strategy Call
-      </a>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <a href="https://cal.com/metric-ascent/free-revenue-recovery-audit" target="_blank" rel="noopener" class="ma-cta ma-header-cta" style="display: inline-flex; align-items: center; gap: 8px; background: #E1BD63; color: #143558; text-decoration: none; font-weight: 700; font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase; padding: 16px 30px; border-radius: 9px; box-shadow: 0 6px 16px rgba(225,189,99,0.28);">
+          Book Your Strategy Call
+        </a>
+        <button id="ma-burger" class="ma-burger" aria-label="Open menu" aria-expanded="false" aria-controls="ma-mobile-menu" style="display: none; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid #E2E6EC; background: #ffffff; border-radius: 10px; cursor: pointer; color: #143558; padding: 0;">
+          <i data-lucide="menu" class="ma-ic-menu" style="width: 24px; height: 24px;"></i>
+          <i data-lucide="x" class="ma-ic-x" style="width: 24px; height: 24px;"></i>
+        </button>
+      </div>
     </div>
+    <nav id="ma-mobile-menu" class="ma-mobile-menu" aria-label="Mobile" style="display: none; flex-direction: column; padding: 8px 6% 18px; border-top: 1px solid #EBEEF2; background: #ffffff;">
+      <a href="#process" class="ma-mobile-link">How It Works</a>
+      <a href="#who" class="ma-mobile-link">Who We Help</a>
+      <a href="#why" class="ma-mobile-link">Why MetricAscent</a>
+      <a href="#faq" class="ma-mobile-link">FAQs</a>
+      <a href="https://cal.com/metric-ascent/free-revenue-recovery-audit" target="_blank" rel="noopener" class="ma-cta" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; background: #E1BD63; color: #143558; text-decoration: none; font-weight: 700; font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; padding: 15px 22px; border-radius: 9px; box-shadow: 0 6px 16px rgba(225,189,99,0.28);">Book Your Strategy Call</a>
+    </nav>
   </header>
 
   <!-- ===== HERO ===== -->
@@ -737,10 +764,36 @@
     setTimeout(function () { while (pending.length) revealEl(pending.pop()); }, 4000);
   }
 
+  // ===== mobile menu =====
+  function setupMobileMenu() {
+    var burger = document.getElementById('ma-burger');
+    var menu = document.getElementById('ma-mobile-menu');
+    if (!burger || !menu) return;
+    var close = function () {
+      menu.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Open menu');
+    };
+    burger.addEventListener('click', function () {
+      var willOpen = !menu.classList.contains('open');
+      menu.classList.toggle('open', willOpen);
+      burger.classList.toggle('open', willOpen);
+      burger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      burger.setAttribute('aria-label', willOpen ? 'Close menu' : 'Open menu');
+    });
+    // close when a link is tapped
+    var links = menu.querySelectorAll('a');
+    for (var i = 0; i < links.length; i++) links[i].addEventListener('click', close);
+    // close if resized up to desktop
+    window.addEventListener('resize', function () { if (window.innerWidth > 820) close(); });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     renderFaqs();
     initIcons();
     setupReveal();
+    setupMobileMenu();
   });
 </script>
 
