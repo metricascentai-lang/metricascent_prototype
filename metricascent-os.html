@@ -421,15 +421,31 @@ function viewsHTML(){ return `
     <div style="position:relative;display:flex;align-items:stretch;justify-content:space-between;gap:34px;flex-wrap:wrap">
       <div style="flex:1;min-width:340px;display:flex;flex-direction:column">
         <div style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#E7C67A;margin-bottom:12px">Mission Control</div>
-        <h1 style="font-size:20px;line-height:1.25;font-weight:800;letter-spacing:-.02em;max-width:700px">The system that texts &amp; emails every window &amp; door lead within a minute &mdash; <span style="color:#E7C67A">and never lets one go cold.</span></h1>
-        <div style="display:flex;align-items:center;gap:10px;margin-top:24px">
-          <div style="text-align:center"><div style="width:16px;height:16px;border-radius:50%;background:#E7C67A;margin:0 auto 10px;animation:maPulse 2.6s ease-in-out infinite"></div><div style="font-size:13px;font-weight:600;color:#FFFFFF">Capture</div></div>
-          <svg width="64" height="16" style="opacity:.8"><line x1="2" y1="8" x2="62" y2="8" stroke="#E7C67A" stroke-width="2" stroke-dasharray="6 6" style="animation:maDash 1.2s linear infinite"/></svg>
-          <div style="text-align:center"><div style="width:16px;height:16px;border-radius:50%;background:#E7C67A;margin:0 auto 10px;animation:maPulse 2.6s ease-in-out infinite .4s"></div><div style="font-size:13px;font-weight:600;color:#FFFFFF">Qualify</div></div>
-          <svg width="64" height="16" style="opacity:.8"><line x1="2" y1="8" x2="62" y2="8" stroke="#E7C67A" stroke-width="2" stroke-dasharray="6 6" style="animation:maDash 1.2s linear infinite .3s"/></svg>
-          <div style="text-align:center"><div style="width:16px;height:16px;border-radius:50%;background:#E7C67A;margin:0 auto 10px;animation:maPulse 2.6s ease-in-out infinite .8s"></div><div style="font-size:13px;font-weight:600;color:#FFFFFF">Book</div></div>
-          <svg width="64" height="16" style="opacity:.8"><line x1="2" y1="8" x2="62" y2="8" stroke="#E7C67A" stroke-width="2" stroke-dasharray="6 6" style="animation:maDash 1.2s linear infinite .6s"/></svg>
-          <div style="text-align:center"><div style="width:16px;height:16px;border-radius:50%;background:#D9B979;margin:0 auto 10px;animation:maPulse 2.6s ease-in-out infinite 1.2s"></div><div style="font-size:13px;font-weight:600;color:#FFFFFF">Win</div></div>
+        <h1 style="font-size:20px;line-height:1.25;font-weight:800;letter-spacing:-.02em;max-width:700px">The all-in-one command center that <span style="color:#E7C67A">captures, converts, and completes</span> every window &amp; door opportunity.</h1>
+        <div style="display:flex;align-items:flex-start;gap:6px;margin-top:26px">
+          <div style="display:flex;flex-direction:column;align-items:center;text-align:center;width:86px;flex:none">
+            <div style="width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#EBD08A,#D9B979);display:flex;align-items:center;justify-content:center;color:#0B2A4A">${svgIcon(['M7 3H3v9a9 9 0 0 0 18 0V3h-4v9a5 5 0 0 1-10 0z','M3 7h4','M17 7h4'],{w:22,sw:1.9})}</div>
+            <div style="font-size:15px;font-weight:800;color:#FFFFFF;margin-top:12px">Capture</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:4px;line-height:1.35">Every lead. Every time.</div>
+          </div>
+          <div style="flex:1;min-width:14px;height:0;border-top:2px dashed rgba(231,198,122,0.5);margin-top:23px"></div>
+          <div style="display:flex;flex-direction:column;align-items:center;text-align:center;width:86px;flex:none">
+            <div style="width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#EBD08A,#D9B979);display:flex;align-items:center;justify-content:center;color:#0B2A4A">${svgIcon(['M22 3H2l8 9.46V19l4 2v-8.54L22 3z'],{w:22,sw:1.9})}</div>
+            <div style="font-size:15px;font-weight:800;color:#FFFFFF;margin-top:12px">Qualify</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:4px;line-height:1.35">Instantly qualify and route.</div>
+          </div>
+          <div style="flex:1;min-width:14px;height:0;border-top:2px dashed rgba(231,198,122,0.5);margin-top:23px"></div>
+          <div style="display:flex;flex-direction:column;align-items:center;text-align:center;width:86px;flex:none">
+            <div style="width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#EBD08A,#D9B979);display:flex;align-items:center;justify-content:center;color:#0B2A4A">${svgIcon(['M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z','m9 16 2 2 4-4'],{w:22,sw:1.9})}</div>
+            <div style="font-size:15px;font-weight:800;color:#FFFFFF;margin-top:12px">Book</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:4px;line-height:1.35">Schedule faster. Follow up smarter.</div>
+          </div>
+          <div style="flex:1;min-width:14px;height:0;border-top:2px dashed rgba(231,198,122,0.5);margin-top:23px"></div>
+          <div style="display:flex;flex-direction:column;align-items:center;text-align:center;width:86px;flex:none">
+            <div style="width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#EBD08A,#D9B979);display:flex;align-items:center;justify-content:center;color:#0B2A4A">${svgIcon(['M4 20h16','M7.5 20v-4','M12 20v-8','M16.5 20v-12','M13 8l3.5-3.5L20 8'],{w:22,sw:1.9})}</div>
+            <div style="font-size:15px;font-weight:800;color:#FFFFFF;margin-top:12px">Win</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:4px;line-height:1.35">Close more deals. Grow revenue.</div>
+          </div>
         </div>
       </div>
       <div style="flex:none;width:400px;max-width:100%;display:flex;flex-direction:column;gap:10px;padding:16px 20px;border-radius:18px;background:rgba(255,255,255,0.06);border:1px solid rgba(231,198,122,0.28)">
